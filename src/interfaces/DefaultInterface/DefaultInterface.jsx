@@ -1,5 +1,7 @@
 import "./DefaultInterface.css";
 
+// libraries
+import { Link, Outlet } from "react-router-dom";
 import React from "react";
 
 export default function DefaultInterface() {
@@ -7,11 +9,8 @@ export default function DefaultInterface() {
     <div className="interface">
       <div>
         <Link to="/">Home</Link>
-        <Link to="/categories">Categories</Link>
       </div>
-      <div>
-
-      </div>
+      <Outlet />
     </div>
   );
 }

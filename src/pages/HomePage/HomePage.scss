@@ -1,0 +1,21 @@
+.home {
+
+    &__box {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: fit-content;
+
+        &-indv {
+            padding: 1rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            color: #FFF;
+            background-color: #000;
+
+            &:hover {
+                background-color: red;
+            }
+        }
+    }
+}

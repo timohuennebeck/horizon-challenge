@@ -1,27 +1,33 @@
-import React, { useEffect, useState } from "react";
+import "./CategoriesPage.scss";
 
 // libraries
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import MovieElement from "../../components/MovieElement/MovieElement";
 
 export default function CategoriesPage() {
-  const [data, setData] = useState([]);
-  const [images, setImages] = useState([]);
+  const [data, setData] = useState("");
+
+  const { id } = useParams();
 
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/550?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${id}`
       )
       .then((resp) => {
-        setData(resp.data);
+        setData(resp.data.results);
       });
   }, []);
 
+  if (!data) return;
+
   return (
-    <div>
-      <p>{data.original_title}</p>
-      <p>{data.overview}</p>
-      <img src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
+    <div className="categories">
+      {data.map((item) => {
+        return <MovieElement data={item} />;
+      })}
     </div>
   );
 }
