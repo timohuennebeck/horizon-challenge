@@ -25,12 +25,14 @@ export default function DetailsPageHome() {
 
       <div className="details-home__content">
         <div className="details-home__content-box">
-          <h1 className="details-home__content-box-header">{data.original_title}</h1>
+          <h1 className="details-home__content-box-header">
+            {data.original_title}
+          </h1>
           <p className="details-home__content-box-overview">{data.overview}</p>
         </div>
 
-        <Link to="/categories" className="details-home__content-link">
-          Return To Categories
+        <Link to="/" className="details-home__content-link">
+          Return To Home
         </Link>
       </div>
     </div>

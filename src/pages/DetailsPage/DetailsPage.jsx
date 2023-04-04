@@ -29,8 +29,8 @@ export default function DetailsPage() {
           <p className="details__content-box-overview">{data.overview}</p>
         </div>
 
-        <Link to="/categories" className="details__content-link">
-          Return To Categories
+        <Link to="/" className="details__content-link">
+          Return To Home
         </Link>
       </div>
     </div>
