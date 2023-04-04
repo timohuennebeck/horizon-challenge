@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import MovieElement from "../../components/MovieElement/MovieElement";
 
 export default function CategoriesPage() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState([]);
 
   const { id } = useParams();
 

@@ -1,17 +1,26 @@
-import axios from "axios";
 import "./HomePage.scss";
 
 // libraries
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 // components
 import MovieElement from "../../components/MovieElement/MovieElement";
 
+interface Movie {
+  id: number;
+  name: string;
+}
+
+interface Popular {
+  original_title: string;
+}
+
 export default function HomePage() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Movie[]>([]);
   const [trending, setTrending] = useState([]);
-  const [popular, setPopular] = useState([]);
+  const [popular, setPopular] = useState<Popular[]>([]);
   const [userInput, setUserInput] = useState("");
 
   useEffect(() => {

@@ -1,7 +1,9 @@
-import logo from "./logo.svg";
 import "./App.scss";
 
+// libraries
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// components
 import HomePage from "./pages/HomePage/HomePage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import DetailsPageHome from "./pages/DetailsPageHome/DetailsPageHome";

@@ -2,10 +2,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./DetailsPageHome.scss";
+import "./DetailsPage.scss";
 
-export default function DetailsPageHome() {
-  const [data, setData] = useState([]);
+interface Movie {
+  original_title: string;
+  poster_path: string;
+  overview: string;
+}
+
+export default function DetailsPage() {
+  const [data, setData] = useState<Movie | null>(null);
 
   const { movieId } = useParams();
 
@@ -19,19 +25,19 @@ export default function DetailsPageHome() {
       });
   }, []);
 
+  if (!data) return;
+
   return (
-    <div className="details-home">
+    <div className="details">
       <img src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
 
-      <div className="details-home__content">
-        <div className="details-home__content-box">
-          <h1 className="details-home__content-box-header">
-            {data.original_title}
-          </h1>
-          <p className="details-home__content-box-overview">{data.overview}</p>
+      <div className="details__content">
+        <div className="details__content-box">
+          <h1 className="details__content-box-header">{data.original_title}</h1>
+          <p className="details__content-box-overview">{data.overview}</p>
         </div>
 
-        <Link to="/" className="details-home__content-link">
+        <Link to="/" className="details__content-link">
           Return To Home
         </Link>
       </div>
