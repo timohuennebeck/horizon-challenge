@@ -40,7 +40,9 @@ export default function HomePage() {
       });
   }, []);
 
-  const filteredSearch = popular.filter((item) => item.original_title.includes(userInput))
+  const filteredSearch = popular.filter((item) =>
+    item.original_title.toLowerCase().includes(userInput.toLowerCase())
+  );
 
   if (!data || !trending || !popular) return;
 

@@ -7,7 +7,7 @@ export default function MovieElement({ item }) {
   console.log(item);
 
   return (
-    <Link to={`:id/movies/${item.id}`} className="movie">
+    <Link to={`movies/${item.id}`} className="movie">
       <div className="movie__box">
         <img
           src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`}

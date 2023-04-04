@@ -1,6 +1,4 @@
 .interface {
-  background-color: #0d0c0f;
-
   &__nav {
     display: flex;
     gap: 1rem;
@@ -31,5 +29,6 @@
   &__outlet {
     width: 80%;
     margin: auto;
+    padding-top: 2rem;
   }
 }
