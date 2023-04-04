@@ -26,7 +26,7 @@ export default function CategoriesPage() {
   return (
     <div className="categories">
       {data.map((item) => {
-        return <MovieElement data={item} />;
+        return <MovieElement item={item} />;
       })}
     </div>
   );

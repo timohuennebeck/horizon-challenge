@@ -1,34 +1,25 @@
 .movie {
-  position: relative;
+  min-width: 10rem;
 
-  &__img {
-    filter: brightness(0.75);
+  &__box {
+    margin-bottom: 1rem;
+
+    &-img {
+      width: 10rem;
+      border-radius: 0.5rem;
+    }
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    z-index: 9999;
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
 
     &-header {
-      white-space: nowrap;
       font-weight: 700;
-      color: #fff;
     }
 
-    &-browse {
-      display: flex;
-      justify-content: center;
-      align-self: flex-start;
-      background-color: #000;
-      border-radius: 2rem;
-      padding: 0.5rem 1.25rem;
-      text-decoration: none;
-      color: #fff;
+    &-date {
+      color: gray;
     }
   }
 }

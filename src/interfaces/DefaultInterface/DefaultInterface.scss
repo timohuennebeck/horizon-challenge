@@ -1,0 +1,35 @@
+.interface {
+  background-color: #0d0c0f;
+
+  &__nav {
+    display: flex;
+    gap: 1rem;
+    background-color: #1a161f;
+    width: 80%;
+    margin: auto;
+
+    &-logo {
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+
+      &-img {
+        width: 7.5rem;
+      }
+    }
+
+    &-link {
+      padding: 1rem 0;
+      color: #fff;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+  }
+
+  &__outlet {
+    width: 80%;
+    margin: auto;
+  }
+}

@@ -19,7 +19,7 @@ export default function DetailsPage() {
   }, []);
 
   return (
-    <div className="bg-red-500">
+    <div>
       <p>{data.original_title}</p>
       <p>{data.overview}</p>
       <img src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
