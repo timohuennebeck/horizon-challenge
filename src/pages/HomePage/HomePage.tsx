@@ -53,7 +53,7 @@ export default function HomePage() {
     item.original_title.toLowerCase().includes(userInput.toLowerCase())
   );
 
-  if (!data || !trending || !popular) return;
+  if (!data || !trending || !popular) return null;
 
   return (
     <div className="home">

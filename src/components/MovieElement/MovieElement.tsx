@@ -3,9 +3,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MovieElement.scss";
 
-export default function MovieElement({ item }) {
-  console.log(item);
+interface Movie {
+  item: any;
+}
 
+export default function MovieElement({ item }: Movie) {
   return (
     <Link to={`movies/${item.id}`} className="movie">
       <div className="movie__box">

@@ -21,7 +21,7 @@ export default function CategoriesPage() {
       });
   }, []);
 
-  if (!data) return;
+  if (!data) return null;
 
   return (
     <div className="categories">

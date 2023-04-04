@@ -25,7 +25,7 @@ export default function DetailsPageHome() {
       });
   }, []);
 
-  if (!data) return;
+  if (!data) return null;
 
   return (
     <div className="details-home">
