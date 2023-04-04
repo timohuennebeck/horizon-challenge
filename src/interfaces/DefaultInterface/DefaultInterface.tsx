@@ -2,7 +2,6 @@ import "./DefaultInterface.scss";
 
 // libraries
 import { Link, Outlet } from "react-router-dom";
-import React from "react";
 
 // icons
 import logoImg from "../../assets/images/logo.svg";
