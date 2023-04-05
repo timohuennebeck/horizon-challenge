@@ -29,7 +29,11 @@ export default function DetailsPage() {
 
   return (
     <div className="details">
-      <img src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
+      <img
+        className="details__img"
+        src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`}
+        alt=""
+      />
 
       <div className="details__content">
         <div className="details__content-box">

@@ -2,9 +2,15 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 75%;
+  margin: auto;
 
   @media only screen and (min-width: 1080px) {
     flex-direction: row;
+  }
+
+  &__img {
+    border-radius: 0.5rem;
   }
 
   &__content {
@@ -25,7 +31,7 @@
 
     &-link {
       background-color: #fff;
-      padding: 1rem 1.5rem;
+      padding: 0.5rem 1.25rem;
       align-self: flex-start;
       border-radius: 5rem;
     }

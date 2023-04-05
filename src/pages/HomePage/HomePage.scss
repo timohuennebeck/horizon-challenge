@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     padding: 2rem;
+    border-radius: 1rem;
 
     &-center {
       display: flex;
@@ -66,7 +67,7 @@
       min-height: 1rem;
       max-height: 1rem;
       padding: 1rem;
-      border-radius: 0.5rem;
+      border-radius: 5rem;
       background-color: #fff;
 
       &-link {

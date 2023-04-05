@@ -93,7 +93,7 @@ export default function HomePage() {
           <h2 className="home__header">Trending</h2>
           <div className="home__trending">
             {trending.map((item) => {
-              return <MovieElement item={item} />;
+              return <MovieElement key={item} item={item} />;
             })}
           </div>
 
