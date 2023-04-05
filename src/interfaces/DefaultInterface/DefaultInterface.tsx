@@ -1,4 +1,4 @@
-import "./DefaultInterface.scss";
+// import "./DefaultInterface.scss";
 
 // libraries
 import { Link, Outlet } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function DefaultInterface() {
         <img src={logoImg} alt="" className="interface__nav-logo-img" />
       </Link>
 
-      <div className="interface__outlet">
+      <div className="interface__outlet" data-testid="interface-outlet">
         <Outlet />
       </div>
     </div>
