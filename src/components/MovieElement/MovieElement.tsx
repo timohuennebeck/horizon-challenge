@@ -1,7 +1,7 @@
 // libraries
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./MovieElement.scss";
+import "./MovieElement.scss";
 
 interface Movie {
   item: any;

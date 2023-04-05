@@ -1,4 +1,5 @@
-// import "./DefaultInterface.scss";
+import "./DefaultInterface.scss";
+import React from "react";
 
 // libraries
 import { Link, Outlet } from "react-router-dom";

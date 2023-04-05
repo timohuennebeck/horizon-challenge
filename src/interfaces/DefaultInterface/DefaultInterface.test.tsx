@@ -1,10 +1,12 @@
 import React from "react";
+import "@testing-library/jest-dom";
+
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import DefaultInterface from "./DefaultInterface";
 
 describe("DefaultInterface", () => {
-  test("renders the logo and Outlet correctly", () => {
+  test("renders the logo and outlet", () => {
     render(
       <BrowserRouter>
         <DefaultInterface />
