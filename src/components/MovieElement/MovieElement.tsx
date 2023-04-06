@@ -10,6 +10,7 @@ export default function MovieElement({ item }: MovieInterface) {
   // load favorite status from localStorage
   useEffect(() => {
     const storedFavorite = localStorage.getItem(`movie-${item.id}-favorite`);
+
     if (storedFavorite) {
       setFavorite(JSON.parse(storedFavorite));
     }
