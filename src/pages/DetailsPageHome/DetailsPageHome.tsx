@@ -3,33 +3,32 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./DetailsPageHome.scss";
-
-interface Movie {
-  original_title: string;
-  poster_path: string;
-  overview: string;
-}
+import { DetailsInterface } from "../../interfaces/appInterfaces";
+import { MovieDetails } from "../../utils/apiCalls";
 
 export default function DetailsPageHome() {
-  const [data, setData] = useState<Movie | null>(null);
+  const [data, setData] = useState<DetailsInterface | null>(null);
 
   const { movieId } = useParams();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-      )
-      .then((resp) => {
-        setData(resp.data);
-      });
-  }, []);
+    const fetchData = async () => {
+      const results = await MovieDetails(movieId ?? "0");
+      setData(results);
+    };
+
+    fetchData();
+  }, [movieId]);
 
   if (!data) return null;
 
   return (
     <div className="details-home">
-      <img className="details-home__img" src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`} alt="" />
+      <img
+        className="details-home__img"
+        src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`}
+        alt=""
+      />
 
       <div className="details-home__content">
         <div className="details-home__content-box">

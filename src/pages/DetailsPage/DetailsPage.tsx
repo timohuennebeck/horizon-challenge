@@ -3,27 +3,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./DetailsPage.scss";
-
-interface Movie {
-  original_title: string;
-  poster_path: string;
-  overview: string;
-}
+import { DetailsInterface } from "../../interfaces/appInterfaces";
+import { MovieDetails } from "../../utils/apiCalls";
 
 export default function DetailsPage() {
-  const [data, setData] = useState<Movie | null>(null);
+  const [data, setData] = useState<DetailsInterface | null>(null);
 
   const { movieId } = useParams();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-      )
-      .then((resp) => {
-        setData(resp.data);
-      });
-  }, []);
+    const fetchData = async () => {
+      const results = await MovieDetails(movieId ?? "0");
+      setData(results);
+    };
+
+    fetchData();
+  }, [movieId]);
 
   if (!data) return null;
 

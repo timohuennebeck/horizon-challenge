@@ -4,49 +4,45 @@ import "./HomePage.scss";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import {
+  HomePageInterface,
+  DetailsInterface,
+} from "../../interfaces/appInterfaces";
 
 // components
 import MovieElement from "../../components/MovieElement/MovieElement";
-
-interface Movie {
-  id: number;
-  name: string;
-}
-
-interface Popular {
-  original_title: string;
-}
+import {
+  MovieGenres,
+  PopularMovies,
+  TrendingMovies,
+} from "../../utils/apiCalls";
 
 export default function HomePage() {
-  const [data, setData] = useState<Movie[]>([]);
+  const [data, setData] = useState<HomePageInterface[]>([]);
   const [trending, setTrending] = useState([]);
-  const [popular, setPopular] = useState<Popular[]>([]);
+  const [popular, setPopular] = useState<DetailsInterface[]>([]);
   const [userInput, setUserInput] = useState("");
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-      )
-      .then((resp) => {
-        setData(resp.data.genres);
-      });
+    const fetchGenres = async () => {
+      const results = await MovieGenres();
+      setData(results);
+    };
 
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-      )
-      .then((resp) => {
-        setPopular(resp.data.results);
-      });
+    const fetchPopular = async () => {
+      const results = await PopularMovies();
+      setPopular(results);
+    };
 
-    axios
-      .get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_MOVIES_API_KEY}`
-      )
-      .then((resp) => {
-        setTrending(resp.data.results);
-      });
+    const fetchTrending = async () => {
+      const results = await TrendingMovies();
+      setTrending(results);
+    };
+
+    fetchGenres();
+    fetchPopular();
+    fetchTrending();
   }, []);
 
   const filteredSearch = popular.filter((item) =>
@@ -79,7 +75,7 @@ export default function HomePage() {
               return (
                 <div className="home__box-indv">
                   <Link
-                    key={item.id}
+                    key={uuidv4()}
                     to={`${item.id}`}
                     className="home__box-indv-link"
                   >
@@ -93,21 +89,21 @@ export default function HomePage() {
           <h2 className="home__header">Trending</h2>
           <div className="home__trending">
             {trending.map((item) => {
-              return <MovieElement key={item} item={item} />;
+              return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
 
           <h2 className="home__header">What's Popular</h2>
           <div className="home__popular">
             {popular.map((item) => {
-              return <MovieElement item={item} />;
+              return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
         </>
       ) : (
         <div className="home__search">
           {filteredSearch.map((item) => {
-            return <MovieElement item={item} />;
+            return <MovieElement key={uuidv4()} item={item} />;
           })}
         </div>
       )}

@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Horizon Application
+This is a React-based web application named "Horizon". The current version is 0.1.0. This application is built using React and TypeScript, and uses Axios for making HTTP requests. It also uses Sass for styling and UUID for generating unique IDs.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
+To install this application, clone the repository from GitHub:
 
-In the project directory, you can run:
+`git clone https://github.com/timohuennebeck/horizon.git`
 
-### `npm start`
+Then, navigate to the project directory and install the dependencies using npm:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`cd horizon`
+`npm install`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Usage
+To start the application, run the following command:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`
 
-### `npm run build`
+This will start the application in development mode and open it in your default browser at http://localhost:3000.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To build the application for production, run the following command:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`npm run build`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This will create a build directory with optimized production build files.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Testing
+To run the tests, use the following command:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm test`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This will run the tests using Jest, which is a JavaScript testing framework.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Dependencies
+This application has the following dependencies:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+axios: A Promise-based HTTP client for making HTTP requests.
+react: A JavaScript library for building user interfaces.
+react-dom: A package for working with the DOM in React.
+react-redux: A package that provides bindings for using Redux with React.
+react-router-dom: A package for adding routing to React applications.
+react-scripts: A set of scripts for building and running React applications.
+redux: A predictable state container for JavaScript applications.
+sass: A preprocessor for CSS that adds features like variables, nesting, and mixins.
+uuid: A package for generating unique IDs.
+web-vitals: A package that provides tools for measuring and reporting web vitals metrics.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Development Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This application has the following development dependencies:
 
-### Analyzing the Bundle Size
+@testing-library/dom: A set of utilities for testing DOM nodes.
+@testing-library/jest-dom: A set of matchers for Jest that you can use to test DOM nodes.
+@testing-library/react: A set of utilities for testing React components.
+@testing-library/user-event: A library for simulating user events.
+@types/jest: TypeScript definitions for Jest.
+@types/react: TypeScript definitions for React.
+@types/uuid: TypeScript definitions for UUID.
+jest: A JavaScript testing framework.
+jest-environment-jsdom: A custom Jest environment that uses jsdom.
+jest-svg-transformer: A Jest transformer for SVG files.
+jest-transform-stub: A Jest transformer for stub files.
+ts-jest: A TypeScript preprocessor for Jest.
+typescript: A superset of JavaScript that adds static typing to the language.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

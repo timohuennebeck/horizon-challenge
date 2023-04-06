@@ -1,4 +1,4 @@
-import "./DefaultInterface.scss";
+import "./DefaultLayout.scss";
 import React from "react";
 
 // libraries
@@ -7,7 +7,7 @@ import { Link, Outlet } from "react-router-dom";
 // icons
 import logoImg from "../../assets/images/logo.svg";
 
-export default function DefaultInterface() {
+export default function DefaultLayout() {
   return (
     <div className="interface">
       <Link to="/" className="interface__nav-logo">

@@ -1,11 +1,11 @@
 import "./CategoriesPage.scss";
 
 // libraries
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieElement from "../../components/MovieElement/MovieElement";
 import { v4 as uuidv4 } from "uuid";
+import { DiscoverMovies } from "../../utils/apiCalls";
 
 export default function CategoriesPage() {
   const [data, setData] = useState([]);
@@ -13,14 +13,13 @@ export default function CategoriesPage() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_MOVIES_API_KEY}&with_genres=${id}`
-      )
-      .then((resp) => {
-        setData(resp.data.results);
-      });
-  }, []);
+    const fetchData = async () => {
+      const results = await DiscoverMovies(id ?? "0");
+      setData(results);
+    };
+
+    fetchData();
+  }, [id]);
 
   if (!data) return null;
 

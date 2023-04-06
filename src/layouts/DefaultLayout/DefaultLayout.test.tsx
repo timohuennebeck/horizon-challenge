@@ -3,13 +3,13 @@ import "@testing-library/jest-dom";
 
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
-import DefaultInterface from "./DefaultInterface";
+import DefaultLayout from "./DefaultLayout";
 
-describe("DefaultInterface", () => {
+describe("DefaultLayout", () => {
   test("renders the logo and outlet", () => {
     render(
       <BrowserRouter>
-        <DefaultInterface />
+        <DefaultLayout />
       </BrowserRouter>
     );
 

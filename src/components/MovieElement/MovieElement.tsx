@@ -1,13 +1,10 @@
 // libraries
 import React from "react";
-import { Link } from "react-router-dom";
 import "./MovieElement.scss";
+import { Link } from "react-router-dom";
+import { MovieInterface } from "../../interfaces/appInterfaces";
 
-interface Movie {
-  item: any;
-}
-
-export default function MovieElement({ item }: Movie) {
+export default function MovieElement({ item }: MovieInterface) {
   return (
     <Link to={`movies/${item.id}`} className="movie">
       <div className="movie__box">
