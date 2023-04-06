@@ -9,9 +9,34 @@
     flex-direction: row;
   }
 
-  &__img {
-    border-radius: 0.5rem;
-    box-shadow: 5px 5px rgba(175, 175, 175, 1);
+  &__box {
+    position: relative;
+
+    &-img {
+      border-radius: 0.5rem;
+      box-shadow: 5px 5px rgba(175, 175, 175, 1);
+      min-width: 25rem;
+      max-width: 25rem;
+    }
+
+    &-like {
+      z-index: 9999;
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+
+      &-filledIn {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: red;
+      }
+
+      &-empty {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: white;
+      }
+    }
   }
 
   &__content {
