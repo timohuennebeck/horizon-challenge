@@ -47,7 +47,7 @@
   &__box {
     display: flex;
     gap: 1rem;
-    overflow: scroll;
+    overflow-x: scroll;
     padding-bottom: 1rem;
 
     &::-webkit-scrollbar {
@@ -69,6 +69,12 @@
       padding: 1rem;
       border-radius: 5rem;
       background-color: #fff;
+      box-shadow: 5px 5px rgba(175, 175, 175, 1);
+      border-radius: 5px;
+
+      &:hover {
+        transform: scale(1.01);
+      }
 
       &-link {
         text-decoration: none;
@@ -80,9 +86,11 @@
 
   &__trending,
   &__popular {
+    position: relative; /* add position relative */
     display: flex;
     gap: 1rem;
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
