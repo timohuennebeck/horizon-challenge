@@ -1,5 +1,3 @@
-import "./HomePage.scss";
-
 // libraries
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -52,15 +50,18 @@ export default function HomePage() {
   if (!data || !trending || !popular) return null;
 
   return (
-    <div className="home">
-      <div className="home__background">
-        <div className="home__background-center">
-          <h2 className="home__background-center-header">Welcome</h2>
-          <h3 className="home__background-center-subHeader">
+    <div className="flex flex-col gap-4">
+      <div
+        className="bg-cover bg-no-repeat bg-center h-[20rem] flex items-center p-8 rounded-md"
+        style={{ backgroundImage: "url(./assets/images/bg.jpeg)" }}
+      >
+        <div className="flex flex-col gap-5">
+          <h2 className="text-4xl font-bold">Welcome</h2>
+          <h3 className="text-2xl font-bold">
             Millions of movies, TV shows and people to discover. Explore now.
           </h3>
           <input
-            className="home__background-center-search"
+            className="bg-white rounded-full border-none p-4 w-full outline-none shadow-5xl"
             placeholder="Search for a movie, tv show, person..."
             onChange={(e) => setUserInput(e.target.value)}
           />
@@ -69,15 +70,15 @@ export default function HomePage() {
 
       {userInput === "" ? (
         <>
-          <h2 className="home__header">Categories</h2>
-          <div className="home__box">
+          <h2 className="text-2xl font-bold">Categories</h2>
+          <div className="flex gap-4 overflow-x-scroll pb-4">
             {data.map((item) => {
               return (
-                <div className="home__box-indv">
+                <div className="flex p-4 justify-center items-center min-h-[1rem] max-h-[1rem] px-4 bg-white shadow-5xl rounded-md hover:scale-101 transform transition">
                   <Link
                     key={uuidv4()}
                     to={`${item.id}`}
-                    className="home__box-indv-link"
+                    className="text-decoration-none whitespace-nowrap text-black"
                   >
                     {item.name}
                   </Link>
@@ -86,22 +87,22 @@ export default function HomePage() {
             })}
           </div>
 
-          <h2 className="home__header">Trending</h2>
-          <div className="home__trending">
+          <h2 className="text-2xl font-bold">Trending</h2>
+          <div className="relative flex gap-8 overflow-x-scroll overflow-y-hidden">
             {trending.map((item) => {
               return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
 
-          <h2 className="home__header">What's Popular</h2>
-          <div className="home__popular">
+          <h2 className="text-2xl font-bold">What's Popular</h2>
+          <div className="relative flex gap-8 overflow-x-scroll overflow-y-hidden">
             {popular.map((item) => {
               return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
         </>
       ) : (
-        <div className="home__search">
+        <div className="flex flex-col gap-4">
           {filteredSearch.map((item) => {
             return <MovieElement key={uuidv4()} item={item} />;
           })}

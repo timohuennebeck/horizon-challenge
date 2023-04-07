@@ -1,5 +1,3 @@
-import "./App.scss";
-
 // libraries
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useState } from "react";

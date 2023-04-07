@@ -1,5 +1,3 @@
-import "./MovieElement.scss";
-
 // libraries
 import React from "react";
 import { Link } from "react-router-dom";
@@ -23,53 +21,35 @@ export default function MovieElement({ item }: MovieInterface) {
     }
   };
 
-  // // load favorite status from localStorage
-  // useEffect(() => {
-  //   const storedFavorite = localStorage.getItem(`movie-${item.id}-favorite`);
-
-  //   if (storedFavorite) {
-  //     setFavorite(JSON.parse(storedFavorite));
-  //   }
-  // }, [item.id]);
-
-  // // function to handle favorite status change
-  // const handleFavoriteChange = () => {
-  //   const newFavoriteStatus = !favorite;
-  //   setFavorite(newFavoriteStatus);
-
-  //   // save favorite status to localStorage
-  //   localStorage.setItem(
-  //     `movie-${item.id}-favorite`,
-  //     JSON.stringify(newFavoriteStatus)
-  //   );
-  // };
-
   return (
-    <Link to={`movies/${item.id}`} className="movie">
-      <div className="movie__box">
+    <Link
+      to={`movies/${item.id}`}
+      className="min-w-[10rem] max-w-[10rem] flex flex-col gap-4 text-decoration-none hover:scale-101"
+    >
+      <div className="mb-4 relative shadow-5xl rounded-lg">
         <img
           src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`}
           alt=""
-          className="movie__box-img"
+          className="w-[10rem] rounded-md"
         />
         <button
           onClick={(e) => {
             e.preventDefault();
             handleFavorite(item.id);
           }}
-          className="movie__like"
+          className="bg-transparent border-none rounded-md z-50 absolute top-4 left-4"
         >
           {favorites[item.id] ? (
-            <AiFillHeart className="movie__like-filledIn" />
+            <AiFillHeart className="w-6 h-6 text-red-500" />
           ) : (
-            <AiOutlineHeart className="movie__like-empty" />
+            <AiOutlineHeart className="w-6 h-6 text-white" />
           )}
         </button>
       </div>
 
-      <div className="movie__content">
-        <span className="movie__content-header">{item.original_title}</span>
-        <span className="movie__content-date">{item.release_date}</span>
+      <div className="flex flex-col gap-4">
+        <span className="font-bold">{item.original_title}</span>
+        <span className="text-gray-500">{item.release_date}</span>
       </div>
     </Link>
   );

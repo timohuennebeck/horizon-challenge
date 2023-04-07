@@ -2,7 +2,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./DetailsPage.scss";
 import { DetailsInterface } from "../../interfaces/appInterfaces";
 import { MovieDetails } from "../../utils/apiCalls";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
@@ -30,34 +29,36 @@ export default function DetailsPage() {
       updateFavorite(data.id, !favorites[data.id]);
     }
   };
-
   return (
-    <div className="details">
-      <div className="details__box">
+    <div className="flex flex-col gap-8 w-3/4 mx-auto md:flex-row">
+      <div className="relative">
         <img
-          className="details__box-img"
+          className="rounded-md shadow-5xl w-[25rem] min-w-[25rem]"
           src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt=""
         />
         <button
-          className="details__box-like"
+          className="z-50 absolute top-4 left-4 bg-transparent border-none"
           onClick={() => handleFavorite(data.id)}
         >
           {favorites[data.id] ? (
-            <AiFillHeart className="details__box-like-filledIn" />
+            <AiFillHeart className="w-6 h-6 text-red-500" />
           ) : (
-            <AiOutlineHeart className="details__box-like-empty" />
+            <AiOutlineHeart className="w-6 h-6 text-white" />
           )}
         </button>
       </div>
 
-      <div className="details__content">
-        <div className="details__content-box">
-          <h1 className="details__content-box-header">{data.original_title}</h1>
-          <p className="details__content-box-overview">{data.overview}</p>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-7xl font-bold">{data.original_title}</h1>
+          <p>{data.overview}</p>
         </div>
 
-        <Link to="/" className="details__content-link">
+        <Link
+          to="/"
+          className="bg-white px-3 py-2 self-start rounded-md text-black shadow-5xl"
+        >
           Return To Home
         </Link>
       </div>
