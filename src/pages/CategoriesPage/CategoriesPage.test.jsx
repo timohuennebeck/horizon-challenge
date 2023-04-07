@@ -37,7 +37,7 @@ describe("CategoriesPage", () => {
     await waitFor(() => {
       expect(axios.get).toHaveBeenCalledWith(
         "https://api.themoviedb.org/3/discover/movie?api_key=" +
-          process.env.REACT_APP_MOVIES_API_KEY +
+          import.meta.env.VITE_REACT_APP_MOVIES_API_KEY +
           "&with_genres=123"
       );
     });

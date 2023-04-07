@@ -1,18 +1,20 @@
 // libraries
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./DetailsPageHome.scss";
 import { DetailsInterface } from "../../interfaces/appInterfaces";
 import { MovieDetails } from "../../utils/apiCalls";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { MovieContext } from "../../App";
 
 export default function DetailsPageHome() {
   const [data, setData] = useState<DetailsInterface | null>(null);
-  const favorite = false;
+  const { favorites, updateFavorite } = useContext(MovieContext);
 
   const { movieId } = useParams();
 
+  // fetches the data from the api
   useEffect(() => {
     const fetchData = async () => {
       const results = await MovieDetails(movieId ?? "0");
@@ -24,17 +26,28 @@ export default function DetailsPageHome() {
 
   if (!data) return null;
 
+  const handleFavorite = (e: any) => {
+    if (e === data.id) {
+      updateFavorite(data.id, !favorites[data.id]);
+    }
+  };
+
   return (
     <div className="details-home">
-
       <div className="details-home__box">
         <img
           className="details-home__box-img"
           src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt=""
         />
-        <button className="details-home__box-like">
-          {favorite ? (
+        <button
+          className="details-home__box-like"
+          onClick={(e) => {
+            e.preventDefault();
+            handleFavorite(data.id);
+          }}
+        >
+          {favorites[data.id] ? (
             <AiFillHeart className="details-home__box-like-filledIn" />
           ) : (
             <AiOutlineHeart className="details-home__box-like-empty" />

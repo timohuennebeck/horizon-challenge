@@ -19,3 +19,10 @@ export interface DetailsInterface {
   release_date: string;
   poster_path: string;
 }
+
+export interface MovieContextInterface {
+  favorites: { [key: number]: boolean };
+  updateFavorite: (id: number, status: boolean) => void;
+}
+
+

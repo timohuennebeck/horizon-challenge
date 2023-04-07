@@ -1,4 +1,4 @@
-@use "./styles/partials/reset";
+@use "./sass/partials/reset";
 
 h1,
 h2,
@@ -11,4 +11,20 @@ span {
 html {
   background-color: #0d0c0f;
   overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Colfax";
+  font-weight: 400;
+  src: url("./assets/fonts/Colfax-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Colfax";
+  font-weight: 700;
+  src: url("./assets/fonts/Colfax-Bold.woff2");
+}
+
+* {
+  font-family: "Colfax";
 }
