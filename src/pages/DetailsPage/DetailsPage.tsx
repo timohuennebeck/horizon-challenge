@@ -33,7 +33,7 @@ export default function DetailsPage() {
     <div className="flex flex-col gap-8 w-3/4 mx-auto md:flex-row">
       <div className="relative">
         <img
-          className="rounded-md shadow-5xl w-[25rem] min-w-[25rem]"
+          className="rounded-xl shadow-5xl w-[25rem] min-w-[25rem]"
           src={`http://image.tmdb.org/t/p/w500/${data.poster_path}`}
           alt=""
         />

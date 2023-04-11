@@ -26,11 +26,11 @@ export default function MovieElement({ item }: MovieInterface) {
       to={`movies/${item.id}`}
       className="min-w-[10rem] max-w-[10rem] flex flex-col gap-4 text-decoration-none hover:scale-101"
     >
-      <div className="mb-4 relative shadow-5xl rounded-lg">
+      <div className="mb-4 relative shadow-5xl rounded-xl">
         <img
           src={`http://image.tmdb.org/t/p/w500/${item.poster_path}`}
           alt=""
-          className="w-[10rem] rounded-md"
+          className="w-[10rem] rounded-xl"
         />
         <button
           onClick={(e) => {

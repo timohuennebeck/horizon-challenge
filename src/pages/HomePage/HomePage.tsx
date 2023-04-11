@@ -1,8 +1,9 @@
 // libraries
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+
+// interfaces
 import {
   HomePageInterface,
   DetailsInterface,
@@ -15,6 +16,9 @@ import {
   PopularMovies,
   TrendingMovies,
 } from "../../utils/apiCalls";
+
+// images
+import heroImg from "../../assets/images/bsr-focus-nature-hero.jpg"
 
 export default function HomePage() {
   const [data, setData] = useState<HomePageInterface[]>([]);
@@ -53,7 +57,8 @@ export default function HomePage() {
     <div className="flex flex-col gap-4">
       <div
         className="bg-cover bg-no-repeat bg-center h-[20rem] flex items-center p-8 rounded-md"
-        style={{ backgroundImage: "url(./assets/images/bg.jpeg)" }}
+        style={{ backgroundImage: `url(${heroImg})` }}
+
       >
         <div className="flex flex-col gap-5">
           <h2 className="text-4xl font-bold">Welcome</h2>
