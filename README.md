@@ -1,6 +1,11 @@
 # Horizon Application
 This is a React-based web application named "Horizon". The current version is 0.1.0. This application is built using React and TypeScript, and uses Axios for making HTTP requests. It also uses Sass for styling and UUID for generating unique IDs.
 
+## Important
+
+To fix the "Cannot find module 'node:path'" error, please make sure that you install the latest version of Node: v18.15.0
+
+
 
 ## Installation
 To install this application, clone the repository from GitHub:
