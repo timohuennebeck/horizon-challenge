@@ -1,9 +1,7 @@
 import React from "react";
 import { render, waitFor, screen } from "@testing-library/react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import CategoriesPage from "./CategoriesPage";
-import MovieElement from "../../components/MovieElement/MovieElement";
 
 jest.mock("../../utils/apiCalls", () => ({
   DiscoverMovies: jest.fn(() =>

@@ -15,8 +15,8 @@ import { MovieInterface } from "../../interfaces/appInterfaces";
 export default function MovieElement({ item }: MovieInterface) {
   const { favorites, updateFavorite } = useContext(MovieContext);
 
-  const handleFavorite = (e: any) => {
-    if (e === item.id) {
+  const handleFavorite = (id: number) => {
+    if (id === item.id) {
       updateFavorite(item.id, !favorites[item.id]);
     }
   };
@@ -40,9 +40,9 @@ export default function MovieElement({ item }: MovieInterface) {
           className="bg-transparent border-none rounded-md z-50 absolute top-4 left-4"
         >
           {favorites[item.id] ? (
-            <AiFillHeart className="w-6 h-6 text-red-500" />
+            <AiFillHeart className="w-6 h-6 text-red-500" data-testid="filled-heart" />
           ) : (
-            <AiOutlineHeart className="w-6 h-6 text-white" />
+            <AiOutlineHeart className="w-6 h-6 text-white" data-testid="outlined-heart"/>
           )}
         </button>
       </div>
