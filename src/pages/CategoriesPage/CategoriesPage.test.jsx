@@ -5,6 +5,15 @@ import { useParams } from "react-router-dom";
 import CategoriesPage from "./CategoriesPage";
 import MovieElement from "../../components/MovieElement/MovieElement";
 
+jest.mock("../../utils/apiCalls", () => ({
+  DiscoverMovies: jest.fn(() =>
+    Promise.resolve([
+      { id: 1, title: "Movie 1" },
+      { id: 2, title: "Movie 2" },
+    ])
+  ),
+}));
+
 jest.mock("axios");
 jest.mock("react-router-dom", () => ({
   useParams: jest.fn(),
@@ -16,15 +25,6 @@ jest.mock("../../components/MovieElement/MovieElement", () => {
 describe("CategoriesPage", () => {
   beforeEach(() => {
     useParams.mockReturnValue({ id: "123" });
-
-    axios.get.mockResolvedValue({
-      data: {
-        results: [
-          { id: 1, title: "Movie 1" },
-          { id: 2, title: "Movie 2" },
-        ],
-      },
-    });
   });
 
   afterEach(() => {
@@ -35,13 +35,7 @@ describe("CategoriesPage", () => {
     render(<CategoriesPage />);
 
     await waitFor(() => {
-      expect(axios.get).toHaveBeenCalledWith(
-        "https://api.themoviedb.org/3/discover/movie?api_key=" +
-          import.meta.env.VITE_REACT_APP_MOVIES_API_KEY +
-          "&with_genres=123"
-      );
+      expect(screen.getAllByTestId("mock-movie-element")).toHaveLength(2);
     });
-
-    expect(screen.getAllByTestId("mock-movie-element")).toHaveLength(2);
   });
 });

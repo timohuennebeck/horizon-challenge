@@ -22,7 +22,7 @@ export default function CategoriesPage() {
   if (!data) return null;
 
   return (
-    <div className="flex flex-wrap gap-20" data-testid="categories">
+    <div className="flex flex-wrap gap-20" data-testid="movies-container">
       {data.map((item) => {
         return <MovieElement key={uuidv4()} item={item} />;
       })}

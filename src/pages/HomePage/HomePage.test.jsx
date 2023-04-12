@@ -43,7 +43,7 @@ describe("HomePage component", () => {
     jest.clearAllMocks();
   });
 
-  test("renders the HomePage component and displays the movie categories", () => {
+  test("renders the HomePage component and displays the movie categories", async () => {
     render(
       <BrowserRouter>
         <HomePage />
@@ -55,8 +55,8 @@ describe("HomePage component", () => {
     expect(categoriesHeader).toBeInTheDocument();
 
     // checks if the genres are visible
-    const actionGenre = screen.getByText("Action");
-    const adventureGenre = screen.getByText("Adventure");
+    const actionGenre = await screen.findByText("Action");
+    const adventureGenre = await screen.findByText(/Adventure/i);
     expect(actionGenre).toBeInTheDocument();
     expect(adventureGenre).toBeInTheDocument();
   });

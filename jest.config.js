@@ -1,5 +1,6 @@
 module.exports = {
   testEnvironment: "jsdom",
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   transform: {
     "^.+\\.svg$": "jest-transform-stub",
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",

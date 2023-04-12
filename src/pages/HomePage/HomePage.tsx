@@ -18,7 +18,7 @@ import {
 } from "../../utils/apiCalls";
 
 // images
-import heroImg from "../../assets/images/bsr-focus-nature-hero.jpg"
+import heroImg from "../../assets/images/bsr-focus-nature-hero.jpg";
 
 export default function HomePage() {
   const [data, setData] = useState<HomePageInterface[]>([]);
@@ -58,7 +58,6 @@ export default function HomePage() {
       <div
         className="bg-cover bg-no-repeat bg-center h-[20rem] flex items-center p-8 rounded-md"
         style={{ backgroundImage: `url(${heroImg})` }}
-
       >
         <div className="flex flex-col gap-5">
           <h2 className="text-4xl font-bold">Welcome</h2>
@@ -79,9 +78,11 @@ export default function HomePage() {
           <div className="flex gap-4 overflow-x-scroll pb-4">
             {data.map((item) => {
               return (
-                <div className="flex p-4 justify-center items-center min-h-[1rem] max-h-[1rem] px-4 bg-white shadow-5xl rounded-md hover:scale-101 transform transition">
+                <div
+                  key={uuidv4()}
+                  className="flex p-4 justify-center items-center min-h-[1rem] max-h-[1rem] px-4 bg-white shadow-5xl rounded-md hover:scale-101 transform transition"
+                >
                   <Link
-                    key={uuidv4()}
                     to={`${item.id}`}
                     className="text-decoration-none whitespace-nowrap text-black"
                   >
