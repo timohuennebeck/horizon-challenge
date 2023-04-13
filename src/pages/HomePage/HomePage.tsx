@@ -99,7 +99,7 @@ export default function HomePage() {
               return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
-
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <h2 className="text-2xl font-bold">What's Popular</h2>
           <div className="relative flex gap-8 overflow-x-scroll overflow-y-hidden">
             {popular.map((item) => {

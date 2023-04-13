@@ -1,4 +1,5 @@
 // libraries
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { createContext, useState } from "react";
 
@@ -14,6 +15,7 @@ import { MovieContextInterface } from "./interfaces/appInterfaces";
 
 export const MovieContext = createContext<MovieContextInterface>({
   favorites: {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   updateFavorite: () => {},
 });
 
