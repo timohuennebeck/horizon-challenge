@@ -3,6 +3,7 @@ module.exports = {
         "browser": true,
         "es2021": true,
         "node": true,
+        "jest": true,
     },
     "extends": [
         "eslint:recommended",
@@ -18,6 +19,7 @@ module.exports = {
     },
     "plugins": [
         "react",
+        "jest",
         "@typescript-eslint"
     ],
     "rules": {

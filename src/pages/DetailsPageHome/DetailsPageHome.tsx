@@ -1,5 +1,4 @@
 // libraries
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { DetailsInterface } from "../../interfaces/appInterfaces";
@@ -25,7 +24,7 @@ export default function DetailsPageHome() {
 
   if (!data) return null;
 
-  const handleFavorite = (e: any) => {
+  const handleFavorite = (e: number) => {
     if (e === data.id) {
       updateFavorite(data.id, !favorites[data.id]);
     }

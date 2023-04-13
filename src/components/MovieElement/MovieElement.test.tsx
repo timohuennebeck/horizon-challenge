@@ -51,8 +51,8 @@ describe("MovieElement", () => {
     );
 
     // check if the outlined heart is rendered and filled heart is not
-    expect(screen.getByTestId("outlined-heart")).toBeInTheDocument();
     expect(screen.queryByTestId("filled-heart")).not.toBeInTheDocument();
+    expect(screen.getByTestId("outlined-heart")).toBeInTheDocument();
 
     // update the context value to make the movie a favorite
     const favoriteContextValue = {
