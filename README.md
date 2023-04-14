@@ -7,6 +7,7 @@ To fix the "Cannot find module 'node:path'" error, please make sure to have inst
 
 
 
+<!-- README is not up to date -->
 ## Installation
 To install this application, clone the repository from GitHub:
 
@@ -31,6 +32,7 @@ To build the application for production, run the following command:
 
 This will create a build directory with optimized production build files.
 
+<!-- What is vite / what does it do, and why did you choose to use vite? -->
 
 ## Testing
 To run the tests, use the following command:
@@ -111,3 +113,33 @@ jest-environment-jsdom: A custom Jest environment that uses jsdom.
 
 
 
+## Challenge:
+
+Dear candidate,
+
+To help us evaluate your skills better, we would like to propose a little technical challenge for you.
+
+Horizon Alpha Technical Test
+
+Create a simple app using React and react-router.
+Write it in Typescript (extra points for a strict ruleset).
+Use your preferred state manager (Redux, Mobx, React Context etc…) and hold a central application state.
+Choose the build tool you prefer.
+Write a minimum of clean css or use styled-components.
+Write at least two tests using JEST.
+Create a README.md file with some documentation.
+Use TheMovieDatabase API (https://developers.themoviedb.org/3) to get data.
+
+The app should contain:
+A home page listing movie categories
+A category page listing movies of the category
+A detail page of an item with more information about that movie
+
+Nice-to-have features:
+Pagination as infinite scrolling
+Server Side Rendering
+Live search
+
+If you have any questions please ask.
+
+The Horizon Alpha development team

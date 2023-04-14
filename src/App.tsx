@@ -6,7 +6,6 @@ import { createContext, useState } from "react";
 // components
 import HomePage from "./pages/HomePage/HomePage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
-import DetailsPageHome from "./pages/DetailsPageHome/DetailsPageHome";
 import DefaultLayout from "./layouts/DefaultLayout/DefaultLayout";
 import CategoriesPage from "./pages/CategoriesPage/CategoriesPage";
 
@@ -15,7 +14,7 @@ import { MovieContextInterface } from "./interfaces/appInterfaces";
 
 export const MovieContext = createContext<MovieContextInterface>({
   favorites: {},
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  /* eslint-disable @typescript-eslint/no-empty-function */
   updateFavorite: () => {},
 });
 
@@ -38,8 +37,7 @@ function App() {
           <Route element={<DefaultLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/:id" element={<CategoriesPage />} />
-            <Route path="/:id/movies/:movieId" element={<DetailsPage />} />
-            <Route path="movies/:movieId" element={<DetailsPageHome />} />
+            <Route path="movies/:movieId" element={<DetailsPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

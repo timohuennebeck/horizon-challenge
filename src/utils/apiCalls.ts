@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// functions should be named with camelcase
 export async function DiscoverMovies(id: string) {
   const response = await axios.get(
     `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.VITE_REACT_APP_MOVIES_API_KEY}&with_genres=${id}`

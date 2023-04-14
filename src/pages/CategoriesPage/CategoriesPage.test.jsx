@@ -1,3 +1,5 @@
+// Why .test.jsx (and test.tsx in some other places?)
+
 import React from "react";
 import { render, waitFor, screen } from "@testing-library/react";
 import { useParams } from "react-router-dom";

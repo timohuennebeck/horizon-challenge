@@ -1,15 +1,8 @@
-// libraries
 import React from "react";
 import { Link } from "react-router-dom";
-
-// contexts
 import { useContext } from "react";
 import { MovieContext } from "../../App";
-
-// icons
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-
-// interfaces
 import { MovieInterface } from "../../interfaces/appInterfaces";
 
 export default function MovieElement({ item }: MovieInterface) {
@@ -23,7 +16,7 @@ export default function MovieElement({ item }: MovieInterface) {
 
   return (
     <Link
-      to={`movies/${item.id}`}
+      to={`../movies/${item.id}`}
       className="min-w-[10rem] max-w-[10rem] flex flex-col gap-4 text-decoration-none hover:scale-101"
     >
       <div className="mb-4 relative shadow-5xl rounded-xl">
@@ -40,9 +33,15 @@ export default function MovieElement({ item }: MovieInterface) {
           className="bg-transparent border-none rounded-md z-50 absolute top-4 left-4"
         >
           {favorites[item.id] ? (
-            <AiFillHeart className="w-6 h-6 text-red-500" data-testid="filled-heart" />
+            <AiFillHeart
+              className="w-6 h-6 text-red-500"
+              data-testid="filled-heart"
+            />
           ) : (
-            <AiOutlineHeart className="w-6 h-6 text-white" data-testid="outlined-heart"/>
+            <AiOutlineHeart
+              className="w-6 h-6 text-white"
+              data-testid="outlined-heart"
+            />
           )}
         </button>
       </div>

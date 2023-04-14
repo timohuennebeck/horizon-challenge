@@ -1,5 +1,5 @@
 // libraries
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
@@ -21,37 +21,37 @@ import {
 import heroImg from "../../assets/images/bsr-focus-nature-hero.jpg";
 
 export default function HomePage() {
-  const [data, setData] = useState<HomePageInterface[]>([]);
-  const [trending, setTrending] = useState([]);
+  const [movieGenres, setMovieGenres] = useState<HomePageInterface[]>([]);
+  const [trendingMovies, setTrendingMovies] = useState([]);
   const [popular, setPopular] = useState<DetailsInterface[]>([]);
   const [userInput, setUserInput] = useState("");
 
+  const fetchGenres = useCallback(async () => {
+    const results = await MovieGenres();
+    setMovieGenres(results);
+  }, []);
+
+  const fetchPopular = useCallback(async () => {
+    const results = await PopularMovies();
+    setPopular(results);
+  }, []);
+
+  const fetchTrending = useCallback(async () => {
+    const results = await TrendingMovies();
+    setTrendingMovies(results);
+  }, []);
+
   useEffect(() => {
-    const fetchGenres = async () => {
-      const results = await MovieGenres();
-      setData(results);
-    };
-
-    const fetchPopular = async () => {
-      const results = await PopularMovies();
-      setPopular(results);
-    };
-
-    const fetchTrending = async () => {
-      const results = await TrendingMovies();
-      setTrending(results);
-    };
-
     fetchGenres();
     fetchPopular();
     fetchTrending();
-  }, []);
+  }, [fetchGenres, fetchPopular, fetchTrending]);
 
   const filteredSearch = popular.filter((item) =>
     item.original_title.toLowerCase().includes(userInput.toLowerCase())
   );
 
-  if (!data || !trending || !popular) return null;
+  if (!movieGenres || !trendingMovies || !popular) return null;
 
   return (
     <div className="flex flex-col gap-4">
@@ -76,7 +76,7 @@ export default function HomePage() {
         <>
           <h2 className="text-2xl font-bold">Categories</h2>
           <div className="flex gap-4 overflow-x-scroll pb-4">
-            {data.map((item) => {
+            {movieGenres.map((item) => {
               return (
                 <div
                   key={uuidv4()}
@@ -95,7 +95,7 @@ export default function HomePage() {
 
           <h2 className="text-2xl font-bold">Trending</h2>
           <div className="relative flex gap-8 overflow-x-scroll overflow-y-hidden">
-            {trending.map((item) => {
+            {trendingMovies.map((item) => {
               return <MovieElement key={uuidv4()} item={item} />;
             })}
           </div>
@@ -108,7 +108,7 @@ export default function HomePage() {
           </div>
         </>
       ) : (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-wrap gap-5">
           {filteredSearch.map((item) => {
             return <MovieElement key={uuidv4()} item={item} />;
           })}

@@ -25,4 +25,4 @@ export interface MovieContextInterface {
   updateFavorite: (id: number, status: boolean) => void;
 }
 
-
+// implement automatic lint checking/fixing and prettifiying on commit?
